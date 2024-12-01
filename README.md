@@ -56,3 +56,11 @@ Getting player name:
 Getting player battle log:
 
 ![Example 2](resources/example_2.png)
+
+Getting player brawlers:
+
+![Example 3](resources/example_3.png)
+
+Getting player club members:
+
+![Example 4](resources/example_4.png)
