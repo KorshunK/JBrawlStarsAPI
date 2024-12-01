@@ -1,4 +1,41 @@
 ## 1. Setup
+Maven:
+```xml
+<repository>
+  <id>jitpack.io</id>
+  <url>https://jitpack.io</url>
+</repository>
+```
+```xml
+<dependency>
+  <groupId>com.github.KorshunK</groupId>
+  <artifactId>JBrawlStarsAPI</artifactId>
+  <version>Version</version>
+</dependency>
+```
+
+Gradle:
+
+```kt
+dependencyResolutionManagement {
+	repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+	repositories {
+          mavenCentral()
+          maven { url 'https://jitpack.io'
+    }
+  }
+}
+```
+
+```kt
+
+dependencies {
+  implementation 'com.github.KorshunK:JBrawlStarsAPI:Version'
+}
+
+```
+
+
 ### To get started, you need to get an [API KEY](https://developer.brawlstars.com/#/account)
 After that, you need to copy the secret token, __DO NOT SHOW IT TO ANYONE!__
 In order for the library to work, you need to set the API KEY value
