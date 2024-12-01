@@ -26,7 +26,7 @@ ClubMember - Object of the player, who is a member of the club
 
 Battle - Object of the player`s battle
 
-## 3. Examples
+## 3. Getting
 ### Brawlers
 Object of the brawler can be obtained in two ways: get it by ID or name
 
@@ -41,3 +41,18 @@ Getting by name:
 A player can be obtained by a tag that starts with '#'
 
 ![getting player](resources/getting_player.png)
+
+### Clubs
+A club can be obtained by a tag that starts with '#'
+
+![getting club](resources/getting_club.png)
+
+## 4. Examples
+Getting player name:
+
+
+![Example 1](resources/example_1.png)
+
+Getting player battle log:
+
+![Example 2](resources/example_2.png)
