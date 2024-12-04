@@ -14,15 +14,17 @@ import ru.korshun.api.player.Battle;
 import ru.korshun.api.player.Player;
 import ru.korshun.utils.JsonUtils;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Properties;
 
 public class BrawlStarsAPI {
     private static List<Brawler> brawlers = new ArrayList<>();
     private static String API_KEY = "";
     public static void main(String[] args) {
-
+        checkVersion();
     }
 
     public static String getApiKey() {
@@ -30,6 +32,7 @@ public class BrawlStarsAPI {
     }
 
     public static void setApiKey(String apiKey) {
+        checkVersion();
         API_KEY = apiKey;
     }
 
@@ -439,6 +442,33 @@ public class BrawlStarsAPI {
             b.put(brawler.getName(), brawler);
         }
         return b;
+    }
+
+    private static void checkVersion() {
+        if(getVersion() == null) exit(0);
+        if(getVersion().equals("1.0-SNAPSHOT")) {
+            API_KEY = null;
+            System.out.println("You need use API version bigger than 1.0-SNAPSHOT");
+            exit(0);
+        }
+    }
+
+    public static void exit(int code) {
+        System.exit(code);
+    }
+
+    public static Properties getProperties() {
+        Properties properties = new Properties();
+        try {
+            properties.load(BrawlStarsAPI.class.getClassLoader().getResourceAsStream("api.properties"));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        return properties;
+    }
+
+    public static String getVersion() {
+        return getProperties().getProperty("version");
     }
 
     public static List<Brawler> getBrawlers() {
